@@ -1,17 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
- 
-provider "aws" {
-  region  = "us-west-2"
-  # Commenting out the profile I am using for github action OIDC
-  # profile = "test-account"
-}
 
 
 resource "aws_cloudfront_distribution" "resume_cf_distro" {

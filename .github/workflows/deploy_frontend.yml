@@ -37,7 +37,6 @@ jobs:
 
       - name: Validate Terraform
         run: terraform validate
-        working-directory: terraform-resume
 
       - name: Import S3 Bucket
         run: terraform import aws_s3_bucket.resumeBucket resumebucketcarroll

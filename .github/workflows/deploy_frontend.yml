@@ -1,0 +1,64 @@
+name: Upload website to S3
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  BUCKET_NAME : "resumecarrollbucket"
+  AWS_REGION : "us-west-2"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: us-west-2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.8.3
+
+     - name: Initialize Terraform
+        run: terraform init
+        working-directory: terraform-resume
+
+      - name: Validate Terraform
+        run: terraform validate
+        working-directory: terraform-resume
+
+      - name: Import S3 Bucket
+        run: terraform import aws_s3_bucket.resumeBucket resumebucketcarroll
+        working-directory: terraform-resume
+
+      - name: Import Cloudfront Distro
+        run: terraform import aws_cloudfront_distribution.resume_cf_distro E2E12TP6LTG1FT
+        working-directory: terraform-resume
+
+      - name: Plan Terraform deployment
+        id: plan
+        run: terraform plan -out=tfplan
+
+      - name: Apply Terraform configuration
+        if: github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve tfplan
+
+      - name: Invalidate CloudFront Cache
+        if: success()
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E2E12TP6LTG1FT \
+            --paths "/*"

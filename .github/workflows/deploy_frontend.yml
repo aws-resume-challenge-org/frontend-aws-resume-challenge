@@ -32,9 +32,9 @@ jobs:
         with:
           terraform_version: 1.8.3
 
-     - name: Initialize Terraform
-       run: terraform init
-       working-directory: terraform-resume
+      - name: Initialize Terraform
+        run: terraform init
+        working-directory: terraform-resume
 
       - name: Validate Terraform
         run: terraform validate

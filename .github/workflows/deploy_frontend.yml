@@ -34,7 +34,6 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: terraform-resume
 
       - name: Validate Terraform
         run: terraform validate

@@ -40,13 +40,13 @@ jobs:
         run: terraform validate
         working-directory: terraform-resume-front
 
-      - name: Import S3 Bucket
-        run: terraform import aws_s3_bucket.resumeBucket resumebucketcarroll
-        working-directory: terraform-resume-front
+      #- name: Import S3 Bucket
+      #  run: terraform import aws_s3_bucket.resumeBucket resumebucketcarroll
+      #  working-directory: terraform-resume-front
 
-      - name: Import Cloudfront Distro
-        run: terraform import aws_cloudfront_distribution.resume_cf_distro E2E12TP6LTG1FT
-        working-directory: terraform-resume-front
+      #- name: Import Cloudfront Distro
+      #  run: terraform import aws_cloudfront_distribution.resume_cf_distro E2E12TP6LTG1FT
+      #  working-directory: terraform-resume-front
 
       - name: Plan Terraform deployment
         id: plan

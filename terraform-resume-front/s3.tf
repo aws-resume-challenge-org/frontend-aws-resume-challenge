@@ -62,7 +62,7 @@ resource "aws_s3_object" "script" {
   acl    = "public-read"
 }
 
-resource "aws_s3_object" "script" {
+resource "aws_s3_object" "styles" {
   bucket = aws_s3_bucket.resumeBucket.bucket
   key    = "styles.css"
   source = "${path.module}/resources/styles.css"

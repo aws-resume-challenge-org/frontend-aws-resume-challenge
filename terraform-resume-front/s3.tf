@@ -62,6 +62,13 @@ resource "aws_s3_object" "script" {
   acl    = "public-read"
 }
 
+resource "aws_s3_object" "script" {
+  bucket = aws_s3_bucket.resumeBucket.bucket
+  key    = "styles.css"
+  source = "${path.module}/resources/styles.css"
+  acl    = "public-read"
+}
+
 # Unblock public access
 resource "aws_s3_bucket_public_access_block" "resumeBucket_public_access_block" {
   bucket = aws_s3_bucket.resumeBucket.id

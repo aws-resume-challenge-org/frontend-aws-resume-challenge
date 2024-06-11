@@ -1,0 +1,125 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.profile {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.profile h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #333;
+}
+
+.profile .title {
+    font-size: 1.2em;
+    color: #777;
+    font-weight: 300;
+}
+
+.contact-info {
+    margin-top: 10px;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info a, .contact-info p {
+    margin: 5px 0;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    padding: 20px 0;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.section h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.section p {
+    margin: 5px 0;
+}
+
+.section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.section ul li {
+    margin-bottom: 10px;
+}
+
+.skills-certifications {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills, .certifications {
+    width: 48%;
+}
+
+.skills ul, .certifications ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skills li, .certifications li {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+#data-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+}

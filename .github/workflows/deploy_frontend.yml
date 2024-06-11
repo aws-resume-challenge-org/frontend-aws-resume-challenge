@@ -40,12 +40,6 @@ jobs:
         run: terraform validate
         working-directory: terraform-resume-front
 
-      - name: List S3 Bucket Contents
-        run: |
-          aws s3 ls s3://resumecarrollbucket
-        env:
-          AWS_REGION: us-west-2
-
       #- name: Import S3 Bucket
       #  run: terraform import aws_s3_bucket.resumeBucket resumebucketcarroll
       #  working-directory: terraform-resume-front

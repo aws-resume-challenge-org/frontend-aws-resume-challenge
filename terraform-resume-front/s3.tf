@@ -90,7 +90,7 @@ resource "aws_s3_bucket_policy" "resumeBucket_policy" {
       Effect    = "Allow",
       Principal = "*",
       Action    = "s3:GetObject",
-      Resource  = "${aws_s3_bucket.resumeBucket.arn}/*",
+      Resource  = "arn:aws:s3:::resumebucketcarroll/*",
     }],
   })
 }

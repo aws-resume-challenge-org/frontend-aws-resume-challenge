@@ -63,10 +63,8 @@ resource "aws_cloudfront_distribution" "resume_cf_distro" {
       minimum_protocol_version       = "TLSv1.2_2021"
       ssl_support_method             = "sni-only"
   }
+
+  provisioner "local-exec" {
+    command = "aws cloudfront create-invalidation --distribution-id E2E12TP6LTG1FT --paths '/*'"
+  }
 }
-
-
-#resource "aws_cloudfront_distribution_invalidation" "invalidation" {
-#  distribution_id = aws_cloudfront_distribution.E2E12TP6LTG1FT
-#  paths           = ["/*"]
-#}

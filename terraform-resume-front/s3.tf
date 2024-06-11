@@ -53,6 +53,8 @@ resource "aws_s3_object" "index" {
   acl    = "public-read"
 
   content_type = "text/html"
+
+  content      = filebase64("${path.module}/resources/index.html")
 }
 
 resource "aws_s3_object" "script" {

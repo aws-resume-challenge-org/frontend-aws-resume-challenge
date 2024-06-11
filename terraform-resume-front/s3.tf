@@ -68,7 +68,7 @@ resource "aws_s3_object" "styles" {
   source = "${path.module}/resources/styles.css"
   acl    = "public-read"
 
-  type="text/css"
+  content_type="text/css"
 }
 
 # Unblock public access

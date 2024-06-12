@@ -51,6 +51,7 @@ resource "aws_s3_object" "index" {
   key    = "index.html"
   source = "${path.module}/resources/index.html"
   acl    = "public-read"
+  etag    = "${filemd5("${path.module}/resources/index.html")}"
 
   content_type = "text/html"
 }
@@ -60,6 +61,7 @@ resource "aws_s3_object" "script" {
   key    = "script.js"
   source = "${path.module}/resources/script.js"
   acl    = "public-read"
+  etag    = "${filemd5("${path.module}/resources/script.js")}"
 }
 
 resource "aws_s3_object" "styles" {
@@ -67,6 +69,7 @@ resource "aws_s3_object" "styles" {
   key    = "styles.css"
   source = "${path.module}/resources/styles.css"
   acl    = "public-read"
+  etag    = "${filemd5("${path.module}/resources/styles.css")}"
 
   content_type="text/css"
 }
